@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartResume Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SmartResume Builder</h1>
+    
+    <!-- Step 1: Basic Profile Setup -->
+    <section class="card">
+      <h2>1. Personal Details</h2>
+      <form id="userForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="text" id="phone" placeholder="Phone Number">
+        <textarea id="objective" placeholder="Career Objective"></textarea>
+        <button type="submit">Create Profile</button>
+      </form>
+    </section>
+
+    <!-- Step 2: Add Education & Projects -->
+    <section class="card disabled" id="detailsSection">
+      <h2>2. Education & Projects</h2>
+      <form id="eduForm">
+        <h3>Add Education</h3>
+        <input type="text" id="degree" placeholder="Degree (e.g. B.Tech CS)" required>
+        <input type="text" id="institution" placeholder="Institution" required>
+        <input type="number" id="year" placeholder="Graduation Year" required>
+        <input type="text" id="score" placeholder="CGPA / Score">
+        <button type="submit">Add Education</button>
+      </form>
+      <hr>
+      <form id="projForm">
+        <h3>Add Project</h3>
+        <input type="text" id="projTitle" placeholder="Project Title" required>
+        <textarea id="projDesc" placeholder="Project Description" required></textarea>
+        <input type="text" id="projTech" placeholder="Technologies Used (e.g. React, Node)" required>
+        <button type="submit">Add Project</button>
+      </form>
+    </section>
+
+    <!-- Step 3: Select Skills -->
+    <section class="card disabled" id="skillsSection">
+      <h2>3. Select Your Skills</h2>
+      <div id="skillsList" class="checkbox-group"></div>
+      <button id="saveSkillsBtn">Save Selected Skills</button>
+    </section>
+
+    <!-- Step 4: Role Recommendation -->
+    <section class="card disabled" id="analysisSection">
+      <h2>4. Career Role Skill Gap Analysis</h2>
+      <label for="roleSelect">Target Role:</label>
+      <select id="roleSelect">
+        <option value="">-- Select Target Role --</option>
+      </select>
+      <button id="analyzeBtn">Analyze Skill Gap</button>
+
+      <div id="analysisResults" class="results-container">
+        <div>
+          <h3>Matched Skills</h3>
+          <div id="matchedSkills" class="badge-container"></div>
+        </div>
+        <div>
+          <h3>Missing / Recommended Skills</h3>
+          <div id="missingSkills" class="badge-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 5: Resume Output -->
+    <section class="card disabled" id="previewSection">
+      <h2>5. Generated Resume Preview</h2>
+      <div id="resumePreview" class="resume-paper">
+        <h2 id="prevName">Your Name</h2>
+        <p id="prevContact">Email | Phone</p>
+        <hr>
+        <h3>Objective</h3>
+        <p id="prevObjective"></p>
+        <h3>Education</h3>
+        <ul id="prevEducation"></ul>
+        <h3>Projects</h3>
+        <ul id="prevProjects"></ul>
+        <h3>Skills</h3>
+        <p id="prevSkills"></p>
+      </div>
+      <button onclick="window.print()">Print / Export PDF</button>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
